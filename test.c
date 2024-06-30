@@ -1,60 +1,187 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//关键字typedef
 #include<stdio.h>
-//typedef unsigned int unit;//定义一个未标识的整型
-// struct Node//定义一个c语言链表结构体
+//常量
+//1.字面常量
+// 30;
+// 1.8;
+// 'a';
+// "answer";
+//2.const定义的常变量
+ //int main()
+ //{
+ //const int a = 20;//在c语言中，const修饰的a，本质是变量，但是不能直接修改，有常量的属性
+ ////a = 30;//err
+ //printf("%d\n", a);
+ // 验证
+ // const int n = 10;
+ // int arr[n] = {0};//err
+ //}
+//3.#define定义的标识符变量
+ //#define MAX 1000
+ //#define STR "abcde"
+ //int main()
+ //{
+ //printf("%d\n" , MAX);
+ // int a = MAX;
+ // printf("%d\n", a);
+ // printf("%s\n", STR);
+ // MAX = 200;//err
+ // return 0;
+ //}
+//4.枚举常量
+//enum Color
 //{
-//  int data;
-// struct Node * next;
-//}Node;
+//	RED,
+//	GREEN,
+//	BLUE
+//};
+//enum Gender
+//{
+//	MALE,
+//	FEMALE,
+//	SECRET
+//};
 //int main()
 //{
-//	unsigned int num = 3;
-//	unit num2 = 2;
-//  struct Node n;
-//  Node n2;
-//	printf("%d\n", num);
-//	printf("%d\n", num2);
+//	RED = 30;//err
+//	MALE = 10;//err
+// enum Color c = RED;
+// enum Color d = MALE;
+//	printf("%s", RED);
+//	printf("%s", MALE);
 //	return 0;
-//
-//
-//
 //}
-//关键字static
-//1.局部变量中使用static
-//void Test()
+//字符串
+//c语言没有字符串类型
+//#include<string.h>
+//int main()
 //{
-//	static int num = 1;//static修饰局部变量后变量放在静态区
-////且static修饰局部变量的时候,局部变量出了作用域不会销毁.
-////影响了变量的生命周期，生命周期变长和程序的生命周期一样。
-//	num++;
-//	printf("%d ", num);
+//	char arr1[] = "abcdef";
+//	char arr2[] = {'a','b','c','d','e','f','\0'};
+//	printf("%s\n", arr1);
+//	printf("%s\n", arr2);
+//	int len = strlen("abc");//求一个字符串长度的一个函数，string length 头文件string.h
+//	printf("%d\n", len);
+//	printf("%d\n", strlen(arr1));
+//	printf("%d\n", strlen(arr2));
+// return 0;
+//}
+//转义字符
+//int main()
+//{
+//	printf("%d\n", strlen("c:\test\628\test.c"));
+//	printf("%s\n", "c:\test\628\test.c");
+//	return 0;
+//}
+//注释
+//写代码时要写注释，帮助自己，又帮助他人
+// 
+//选择语句
+//int main()
+//{
+//	int choice = 0;
+//	printf("要好好学习吗？(1/0)\n");
+//	scanf("%d", &choice);
+//	if(choice == 1)
+//	{
+//		printf("好offer\n");
+//	}
+//	else
+//	{
+//		printf("卖红薯\n");
+//	}
+//	return 0;
+//}
+//循环语句
+//int main()
+//{
+//	printf("加入比特\n");
+//	int line = 0;//0行代码
+//	while (line < 20000)
+//	{
+//		printf("写代码:%d行\n", line);
+//		line++;
+//	}
+//	if (line >= 20000)
+//	{
+//		printf("好offer\n");
+//	}
+//	else
+//	{
+//		printf("继续加油\n");
+//	}
+//	return 0;
+//}
+//函数
+//计算两数之和
+//int Add(n1, n2)
+//{
+//	return (n1 + n2);
 //}
 //int main()
 //{
+//	//输入
+//	int n1 = 0;
+//	int n2 = 0;
+//	printf("输入 n1 , n2 \n");
+//	scanf("%d %d", &n1, &n2);
+//	//求和
+//	printf("n1 + n2 = ");
+//	int sum = Add(n1, n2);//自建函数
+//	//打印
+//	printf("%d\n", sum);
+//	return 0;
+//}
+//数组
+//int main()
+//{
+//	int arr[10] = { 10,11,12,13,14,15,16,17,18,19 };
+//	//循环打印
 //	int i = 0;
 //	while (i < 10)
 //	{
-//		Test();
+//		printf("%d ", arr[i]);
 //		i++;
 //	}
 //	return 0;
 //}
-//2.全局变量中使用static
-//extern int a;//外部全局变量由static修饰时该变量该变量的外部链接属性就变成了内部链接属性，
-// 其他源文件就不可以使用了
+//比较两个数的较大值
+//int subtraction(int x, int y)
+//{
+//	return (x - y);
+//}
 //int main()
 //{
-//	printf("%d\n", a);
+//	int n1 = 0;
+//	int n2 = 0;
+//	//输入
+//	printf("请输入要进行比较的数\n");
+//	scanf("%d %d", &n1, &n2);
+//	//比较
+//	int res = subtraction(n1, n2);
+//	if (res > 0)
+//	{
+//		printf("较大值=%d\n", n1);
+//	}
+//	else if (res == 0)
+//	{
+//		printf("一样大\n");
+//	}
+//	else
+//	{
+//		printf("较大值=%d\n", n2);
+//	}
 //	return 0;
 //}
-//3.使用static来修饰函数
-//extern int Add(int x, int y);//static修饰函数时函数从全局使用到只能在该源文件内部调用，
-// 而函数本身具有外部链接属性的
+//操作符，略
+//三目运算符
 //int main()
 //{
-//	int num1 = 10;
-//	int num2 = 20;
-//	printf("两数之和 = %d\n", Add(num1, num2));
+//	int a = 30;
+//	int b = 40;
+//	int c = a > b ? a : b;
+//	printf("较大值 = %d\n", c);
 //	return 0;
 //}
+//逗号表达式就是用逗号隔开的一段表达式
+//逗号表达式的计算结果就是最后一个表达式的计算结果
