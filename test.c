@@ -1,57 +1,60 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+//关键字typedef
 #include<stdio.h>
-//int main() {
-//	int a = 0;
-//	scanf("%d", &a);
-//	printf("a = %d\n", a);
+//typedef unsigned int unit;//定义一个未标识的整型
+// struct Node//定义一个c语言链表结构体
+//{
+//  int data;
+// struct Node * next;
+//}Node;
+//int main()
+//{
+//	unsigned int num = 3;
+//	unit num2 = 2;
+//  struct Node n;
+//  Node n2;
+//	printf("%d\n", num);
+//	printf("%d\n", num2);
 //	return 0;
+//
+//
+//
+//}
+//关键字static
+//1.局部变量中使用static
+//void Test()
+//{
+//	static int num = 1;//static修饰局部变量后变量放在静态区
+////且static修饰局部变量的时候,局部变量出了作用域不会销毁.
+////影响了变量的生命周期，生命周期变长和程序的生命周期一样。
+//	num++;
+//	printf("%d ", num);
 //}
 //int main()
 //{
-//	printf("%zu\n", sizeof(char));//%zu 打印sizeof返回的无符号整型，不用%d
-//	printf("%zu\n", sizeof(short));
-//	printf("%zu\n", sizeof(long));
-//	printf("%zu\n", sizeof(long long));
-//	printf("%zu\n", sizeof(int));
-//	printf("%zu\n", sizeof(float));
-//	printf("%zu\n", sizeof(double));
-//	return 0;
-//}
-//任意数求和
-//int main()
-//{
-//	int num1 = 0;
-//	int num2 = 0;
-//	printf("输入num1和num2的值\n");
-//	scanf("%d %d", &num1, &num2);
-//	int sum = num1 + num2;
-//	printf("两数之和 = %d", sum);
-//	return 0;
-//}
-//作用域
-//全局变量
-//全局变量的作用域是整个工程
-//局部变量
-//局部变量的作用域是变量所在的局部范围
-
-//生命周期
-//全局变量的生命周期是整个程序的生命周期
-//局部变量的生命周期在进入作用域时开始，退出作用域时结束
- 
-//声明来自外部的符号
-//extern int a;//全局变量
-//void test()
-//{
-//	printf("test---> %d\n", a);
-//}
-//int main()
-//{
-//	test();
-//	{ 
-//		int a = 20;//局部变量
-//		printf("局部变量a = %d\n", a);
-//		
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		Test();
+//		i++;
 //	}
-//	printf("全局变量a = %d", a);
+//	return 0;
+//}
+//2.全局变量中使用static
+//extern int a;//外部全局变量由static修饰时该变量该变量的外部链接属性就变成了内部链接属性，
+// 其他源文件就不可以使用了
+//int main()
+//{
+//	printf("%d\n", a);
+//	return 0;
+//}
+//3.使用static来修饰函数
+//extern int Add(int x, int y);//static修饰函数时函数从全局使用到只能在该源文件内部调用，
+// 而函数本身具有外部链接属性的
+//int main()
+//{
+//	int num1 = 10;
+//	int num2 = 20;
+//	printf("两数之和 = %d\n", Add(num1, num2));
 //	return 0;
 //}
